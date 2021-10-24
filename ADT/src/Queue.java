@@ -1,3 +1,6 @@
+import QueueExceptions.EmptyQueueException;
+import QueueExceptions.FullQueueException;
+
 public class Queue
 {
     private int[] arr;
