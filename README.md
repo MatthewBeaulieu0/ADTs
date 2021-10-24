@@ -1,2 +1,2 @@
 # ADTs
-Different Abstract Data Types Coded in java
+Different Abstract Data Types for the COMP-352 class coded in Java
