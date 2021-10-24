@@ -11,25 +11,21 @@ public class Queue
         this.arr=new int[size];
         this.capacity=size;
         this.front=0;
-        this.rear=-1;
+        this.rear=0;
 
     }
-
     public int size(){
-        return (((capacity-front)+rear)%capacity)+1;
+        return (((capacity-front)+rear)%capacity);
     }
     public boolean isEmpty() {
-        return (this.size()==0);
+        return (this.front==this.rear);
     }
-    public boolean isFull() {
-        return(this.capacity==this.size());
-    }
-    public void enqueue(int item) {
-        if(isFull() &&this.arr!=null) {
-         System.out.print("?");
+    public void enqueue(int item) throws FullQueueException {
+        if(this.size()==(capacity-1)) {
+         throw new FullQueueException("Overflow\nProgram Terminated");
         }
-        this.rear=(this.rear+1)%capacity;
         arr[rear]=item;
+        this.rear=(this.rear+1)%capacity;
 
     }
 
@@ -42,6 +38,7 @@ public class Queue
             throw new EmptyQueueException("Underflow\nProgram Terminated");
         }
         this.front=(this.front+1)%capacity;
+
 
 
     }
