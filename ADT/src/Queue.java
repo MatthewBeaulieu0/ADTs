@@ -1,5 +1,4 @@
-import QueueExceptions.EmptyQueueException;
-import QueueExceptions.FullQueueException;
+import QueueExceptions.*;
 
 public class Queue
 {
