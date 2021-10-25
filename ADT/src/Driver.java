@@ -1,5 +1,6 @@
 import QueueExceptions.EmptyQueueException;
 import QueueExceptions.FullQueueException;
+import StacksException.EmptyStackException;
 
 public class Driver {
     public static void main(String[] args) {
@@ -27,5 +28,17 @@ public class Driver {
             System.err.println(e.getMessage());
         }
         System.out.println("Here are some basic operations done on my own Stack implementation");
+        StacksLinkedList stack = new StacksLinkedList();
+        try {
+            stack.push(1);
+            stack.push(2);
+            stack.push(3);
+            stack.push(4);
+            System.out.println(stack.peek());
+            System.out.println(stack.pop());
+            System.out.println(stack.pop());
+        } catch (EmptyStackException e) {
+            System.err.println(e.getMessage());
+        }
     }
 }

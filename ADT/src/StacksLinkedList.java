@@ -1,4 +1,3 @@
-import QueueExceptions.EmptyQueueException;
 import StacksException.*;
 
 import java.util.LinkedList;
@@ -7,7 +6,9 @@ import java.util.LinkedList;
 public class StacksLinkedList {
 
     private LinkedList<Integer> arr;
-
+    public StacksLinkedList(){
+        this.arr=new LinkedList<Integer>();
+    }
     public Integer getRear() {
         return arr.getFirst();
     }
