@@ -77,7 +77,7 @@ public class PriorityQueueSelectionSort {
             if (holder.next == null) throw new AbsentKeyException("Key is not part of the PQ");
             holder = holder.next;
         }
-        holder = holder.next.next;
+        holder.next = holder.next.next;
 
 
     }
@@ -94,11 +94,11 @@ public class PriorityQueueSelectionSort {
             return head;
         }
         ElementPQS holder = head;
-        while (holder.next.key != SKey) {
-            if (holder.next == null) throw new AbsentKeyException("Key is not part of the PQ");
+        while (holder.next != null && holder.next.key != SKey) {
             holder = holder.next;
         }
-        holder=holder.next;
+        if (holder.next == null) throw new AbsentKeyException("Key is not part of the PQ");
+        holder = holder.next;
         return holder;
         //Can implement method that will select a random one from all the same keys
 
@@ -115,13 +115,15 @@ public class PriorityQueueSelectionSort {
         pqs.enqueue(c);
         pqs.enqueue(d);
         System.out.println("Here is my implementation of the PQ ADT");
-        try{
+        try {
 
 
-        System.out.println("Here is the value attached to key 3 : "+pqs.show(3).getElement());
-        }catch(AbsentKeyException e){
+            System.out.println("Here is the value attached to key 3 : " + pqs.show(3).getElement());
+            pqs.dequeue(3);
+            System.out.println("Here is the value attached to key 3 : " + pqs.show(3).getElement());
+        } catch (AbsentKeyException e) {
             System.err.println(e.getMessage());
-        }catch(EmptyQueueException e){
+        } catch (EmptyQueueException e) {
             System.err.println(e.getMessage());
         }
     }
